@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -48,7 +49,9 @@ class MainActivity : ComponentActivity() {
                         painter = painter,
                         contentDescription = contentDescription,
                         title = title,
-                        modifier = Modifier.padding(innerPadding)
+                        modifier = Modifier
+                            .padding(innerPadding)
+                            .fillMaxWidth(1.0f)
                         )
 
                 }
@@ -73,7 +76,7 @@ fun ImageCard(
         )
     ) {
         Box(
-            modifier = Modifier.height(200.dp)
+            modifier = Modifier.fillMaxHeight(0.2f)
         ){
             Image(
                 painter = painter,
@@ -83,13 +86,15 @@ fun ImageCard(
 
             Box(modifier = Modifier
                 .fillMaxSize()
-                .background(Brush.verticalGradient(
-                    colors = listOf(
-                        Color.Transparent,
-                        Color.Black
-                    ),
-                    startY = 250f
-                ))
+                .background(
+                    Brush.verticalGradient(
+                        colors = listOf(
+                            Color.Transparent,
+                            Color.Black
+                        ),
+                        startY = 250f
+                    )
+                )
             )
 
             Box(
